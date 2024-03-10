@@ -1,7 +1,7 @@
 import React from "react";
 import VideoPlayer from "./Old/VideoPlayer";
 import { Box } from "@mui/material";
-import TrailerThumbnail from "../Assets/TrailerThumbnail.png";
+import TrailerThumbnail from "Assets/TrailerThumbnail.png";
 
 function Trailer({ src }) {
   return (

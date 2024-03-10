@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import ReactPlayer from "react-player/lazy";
+import thumbnail from "Assets/TrailerThumbnail.png";
 
-function VideoPlayer({ src, thumbnail }) {
+function VideoPlayer({ src }) {
   const videoRef = useRef(null);
   const intervalRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -82,7 +83,7 @@ function VideoPlayer({ src, thumbnail }) {
         className="video-player"
         ref={videoRef}
         src={src}
-        // poster={thumbnail}
+        poster={thumbnail}
         onClick={togglePlayPause}
         onPlay={startProgressLoop}
         onPause={stopProgressLoop}

@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Card,
   CardContent,
   FormControlLabel,
@@ -18,6 +19,7 @@ import {
 import { theme } from "Assets/themes";
 import qr from "Assets/qr.png";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function Payments() {
   const [selectedValue, setSelectedValue] = React.useState("");
@@ -26,6 +28,8 @@ function Payments() {
     setSelectedValue(event.target.value);
   };
   const matchesSmall = useMediaQuery(theme.breakpoints.up("md"));
+  const navigate = useNavigate();
+
   return (
     <>
       <section
@@ -59,7 +63,7 @@ function Payments() {
             <Box sx={PaymentsModalInner}>
               <Grid container spacing={5}>
                 <Grid item md={8} sm={12}>
-                  <Box sx={{ py: 2, px: 3, mr: 5 }}>
+                  <Box sx={{ py: 2, px: 3 }}>
                     <Box
                       sx={{
                         display: "flex", // Add display flex
@@ -177,11 +181,11 @@ function Payments() {
                                 <TextField
                                   variant="outlined"
                                   fullWidth
-                                  margin="dense"
+                                  // margin="dense"
                                   sx={{
                                     input: {
                                       height: "4px",
-                                      padding: "8px", // Keeping reduced padding for smaller input size
+                                      padding: "10px", // Keeping reduced padding for smaller input size
                                     },
                                     ".MuiOutlinedInput-root": {
                                       margin: "2px",
@@ -325,8 +329,10 @@ function Payments() {
                       color: "white",
                       height: "100%",
                       borderTopRightRadius: matchesSmall ? "30px" : "0px",
-                      borderBottomRightRadius: matchesSmall ? "0px" : "30px",
+                      borderBottomRightRadius: "30px",
                       borderBottomLeftRadius: matchesSmall ? "0px" : "30px",
+                      display: "flex",
+                      flexDirection: "column",
                     }}
                   >
                     <Box
@@ -344,15 +350,15 @@ function Payments() {
                         Basic Plan
                       </Typography>
                       <Typography fontSize={15}>
-                        with limited acess to the template catalog and basic
+                        with limited access to the template catalog and basic
                         editing
                       </Typography>
                     </Box>
                     <Box
                       sx={{
-                        display: "flex", // Add display flex
-                        justifyContent: "space-between", // Add this to align items at both ends of the container
-                        alignItems: "center", // Align items vertically center
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
                         px: 2,
                         pt: 1,
                         pb: 0.2,
@@ -363,9 +369,9 @@ function Payments() {
                     </Box>
                     <Box
                       sx={{
-                        display: "flex", // Add display flex
-                        justifyContent: "space-between", // Add this to align items at both ends of the container
-                        alignItems: "center", // Align items vertically center
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
                         px: 2,
                         pb: 1,
                         borderBottom: "1px dashed white",
@@ -376,9 +382,9 @@ function Payments() {
                     </Box>
                     <Box
                       sx={{
-                        display: "flex", // Add display flex
-                        justifyContent: "space-between", // Add this to align items at both ends of the container
-                        alignItems: "center", // Align items vertically center
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
                         px: 2,
                         py: 3,
                         borderBottom: "1px dashed white",
@@ -389,9 +395,9 @@ function Payments() {
                     </Box>
                     <Box
                       sx={{
-                        display: "flex", // Add display flex
-                        justifyContent: "space-between", // Add this to align items at both ends of the container
-                        alignItems: "center", // Align items vertically center
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
                         px: 2,
                         py: 3,
                         borderBottom: "1px dashed white",
@@ -400,6 +406,20 @@ function Payments() {
                     >
                       <Typography align="left"></Typography>
                       <Typography align="right">Total: ₹ 100</Typography>
+                    </Box>
+                    <Box
+                      my={2}
+                      display={"flex"}
+                      justifyContent={"center"}
+                      sx={{ marginTop: "auto" }} // This ensures the button sticks to the bottom
+                    >
+                      <Button
+                        variant="contained-dark"
+                        sx={{ width: "20vw", mt: 2 }}
+                        onClick={() => navigate("/playvideo")}
+                      >
+                        Done
+                      </Button>
                     </Box>
                   </Box>
                 </Grid>
