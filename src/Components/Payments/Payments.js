@@ -154,11 +154,11 @@ function Payments() {
                             {/* Decreased marginBottom */}
                           </Box>
 
-                          <Grid container spacing={0.5}>
+                          <Grid container spacing={1}>
                             {" "}
                             {/* Reduced spacing */}
                             {[
-                              "Name(s)",
+                              "First Name",
                               "Last Name",
                               "Card Number",
                               "Expiration",
