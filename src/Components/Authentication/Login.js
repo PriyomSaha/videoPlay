@@ -3,11 +3,15 @@ import EmailInput from "Assets/EmailInput";
 import { FullScreenModalContent } from "Assets/GlobalStyles";
 import PasswordInput from "Assets/PasswordInput";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
+  const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -20,7 +24,14 @@ function Login() {
           alignItems={"center"}
         >
           <Grid item xs={12}>
-            <EmailInput email={email} setEmail={setEmail} />
+            <TextField
+              fullWidth
+              label="User Name"
+              variant="outlined"
+              size="small"
+              value={userName}
+              onChange={(e) => setUserName(e.target.value)}
+            />
           </Grid>
           <Grid item xs={12}>
             <PasswordInput
@@ -68,6 +79,7 @@ function Login() {
                   onClick={(e) => {
                     // setIsEditProfile();
                     // handleSubmit(e);
+                    navigate("/payment");
                   }}
                 >
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Access&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

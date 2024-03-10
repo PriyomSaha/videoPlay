@@ -76,7 +76,7 @@
     position: absolute;
     top: 45%;
     left: 90%;
-    transform: translate(-70%, -50%);
+    transform: translate(-60%, -40%);
     width: 1000px;
     /* Adjust the size of the moving image as needed */
     height: 600px;
@@ -87,6 +87,7 @@
 /* transform: translate(0%, 109%);          */
 /* padding: 0 10rem; */
 color: #f0f8ff;
+    margin: 1rem 1rem 0 0,
 /* width: 100%; */
 }
 .donate-button {

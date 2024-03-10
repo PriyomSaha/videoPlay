@@ -33,6 +33,8 @@ function Signup() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [country, setCountry] = useState("IN");
 
+  const [userName, setUserName] = useState("");
+
   const [newpassword, setNewPassword] = useState("");
   const [confirmNewpassword, setConfirmNewPassword] = useState("");
   const [isPassMatch, setIsPassMatch] = useState(true);
@@ -52,40 +54,18 @@ function Signup() {
           <Grid item xs={12}>
             <TextField
               fullWidth
-              label="Full Name"
+              label="User Name"
               variant="outlined"
               size="small"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              value={userName}
+              onChange={(e) => setUserName(e.target.value)}
             />
           </Grid>
-          <Grid item xs={12}>
-            <EmailInput email={email} setEmail={setEmail} />
-          </Grid>
-        </Grid>
-
-        <Grid container style={{ marginTop: "5px" }} spacing={2}>
-          <Grid item xs={12}>
-            <Countries country={country} setCountry={setCountry} />
-          </Grid>
-          <Grid item xs={12}>
-            <PhoneInput
-              country={country.toLowerCase()}
-              enableSearch={true}
-              countryCodeEditable={false}
-              value={phoneNumber}
-              onChange={(phone) => setPhoneNumber(phone)}
-              placeHolder="Enter the phone number"
-            />
-          </Grid>
-        </Grid>
-
-        <Grid container spacing={2} display="flex" justifyContent="center">
           <Grid
             item
             xs={12}
             sx={{
-              mt: "5px",
+              mt: "-10px",
             }}
           >
             <PasswordInput
@@ -113,8 +93,12 @@ function Signup() {
             )}
           </Grid>
         </Grid>
+        <Typography fontWeight={700} mt={1}>
+          Note : Please remember your password and username.You will be asked to
+          login everytime you visit the site.
+        </Typography>
         {/* button */}
-        <Box mt={4}>
+        <Box mt={2}>
           <>
             {/* Horizontal line for visual separation */}
             <hr />

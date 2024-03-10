@@ -47,3 +47,35 @@ export const FullScreenModalContent = {
   maxHeight: "90vh",
   overflow: "auto",
 };
+
+export const PaymentsModalContainer = {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  width: "100vw",
+};
+
+export const PaymentsModal = {
+  background: theme.palette.grey[100],
+  marginTop: "-25vh",
+  minHeight: "60vh",
+  minWidth: "90vw",
+  maxWidth: "95vw",
+  borderRadius: "30px",
+  border: "0.5px solid black",
+  [theme.breakpoints.down("md")]: {
+    maxWidth: "99vw",
+  },
+  [theme.breakpoints.down("sm")]: {
+    maxWidth: "100vw",
+  },
+};
+export const PaymentsModalInner = {
+  display: "flex",
+  flexDirection: "column",
+  background: theme.palette.grey[400],
+  minHeight: "50vh",
+  minWidth: "80vw",
+  borderRadius: "30px",
+  margin: "1rem 5rem 2rem 5rem",
+};

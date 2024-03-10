@@ -6,7 +6,7 @@ import Authentication from "./Authentication";
 import LikeShare from "./LikeShare";
 
 function LandingPage({ src }) {
-  const [isLoginModalopen, setIsLoginModalOpen] = useState(false);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
   return (
     <>
@@ -19,106 +19,80 @@ function LandingPage({ src }) {
           className="Ysvivekananda"
         />
       </Box>
-      <Grid container>
+
+      <Grid container justifyContent={"flex-start"}>
         <Grid
+          container
           item
-          xs={12}
-          style={{ display: "flex", justifyContent: "flex-end" }}
-        >
-          <Button
-            style={{
-              background: "#f1f6f6",
-              color: "#FF0003",
-              border: "0.2px solid #FF0003",
-              padding: "0.5rem",
-              borderRadius: "30px",
-              width: "7rem",
-              margin: "1rem 1rem 0 0",
-            }}
-            onClick={() => setIsLoginModalOpen(true)}
-          >
-            Login
-          </Button>
-        </Grid>
-        <Box
+          color={"white"}
           sx={{
-            height: "100vh",
+            p: 2,
             display: "flex",
+            justifyContent: "flex-end",
+          }}
+        >
+          <Grid item>
+            <Button
+              variant="contained"
+              style={{ background: "#FF0003" }}
+              // className="donate-button"
+              onClick={() => setIsLoginModalOpen(true)}
+            >
+              Donate to watch full movie
+            </Button>
+
+            <Typography variant="h6" align="center">
+              Min ₹100
+            </Typography>
+          </Grid>
+        </Grid>
+
+        <Grid
+          container
+          spacing={5}
+          style={{
+            height: "90vh",
+            display: "flex",
+            justifyContent: "flex-start",
             alignItems: "center",
-            justifyContent: "center",
           }}
         >
           <Grid
             container
             item
-            spacing={5}
-            style={{ alignItems: "center", height: "100%" }}
+            sm={12}
+            md={9}
+            justifyContent="center" // Align items horizontally
+            alignItems="center" // Align items vertically
           >
-            <Grid
-              container
-              item
-              sm={12}
-              md={9}
-              justifyContent="center" // Align items horizontally
-              alignItems="center" // Align items vertically
-              flexDirection={"column"}
-            >
-              <Grid item>
-                <Trailer src={src} />
-              </Grid>
-              <Grid
-                container
-                item
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  alignItems: "center",
-                  justifyContent: "space-evenly",
-                }}
-              >
-                <Grid item>
-                  <Typography variant="h6" align="center" color={"whitesmoke"}>
-                    Vivekam Movie - Official Trailer
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <LikeShare />
-                </Grid>
-              </Grid>
+            <Grid item>
+              <Trailer src={src} />
             </Grid>
             <Grid
               container
               item
-              sm={12}
-              md={3}
-              className="donate-button-container"
               style={{
                 display: "flex",
-                justifyContent: "center",
+                flexDirection: "row",
                 alignItems: "center",
+                justifyContent: "space-evenly",
               }}
             >
-              <Grid item sm={12}>
-                <Button
-                  variant="contained"
-                  style={{ background: "#FF0003" }}
-                  className="donate-button"
-                >
-                  Donate to watch full movie
-                </Button>
-              </Grid>
-              <Grid item sm={12}>
-                <Typography variant="h6" align="center" width={"15rem"}>
-                  Min ₹100
+              <Grid item>
+                <Typography variant="h6" align="center" color={"whitesmoke"}>
+                  Vivekam Movie - Official Trailer
                 </Typography>
+              </Grid>
+              <Grid item>
+                <LikeShare />
               </Grid>
             </Grid>
           </Grid>
-          <Authentication
-            isLoginModalopen={isLoginModalopen}
-            setIsLoginModalOpen={setIsLoginModalOpen}
-          />
-        </Box>
+        </Grid>
+        <Authentication
+          isLoginModalopen={isLoginModalOpen}
+          setIsLoginModalOpen={setIsLoginModalOpen}
+        />
       </Grid>
     </>
   );
