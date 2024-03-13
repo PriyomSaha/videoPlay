@@ -11,6 +11,7 @@ import { ThemeProvider } from "@emotion/react";
 import { CssBaseline } from "@mui/material";
 import Payments from "Components/Payments/index.js";
 import ToastAlert from "Assets/ToastAlert";
+import NotFoundPage from "Components/Authentication/NotfoundPage";
 
 function App() {
   const src =
@@ -20,6 +21,7 @@ function App() {
     { path: "/", element: <LandingPage src={src} /> },
     { path: "/playvideo", element: <PlayVideo src={src} /> },
     { path: "/payment", element: <Payments /> },
+    { path: "*", element: <NotFoundPage /> },
   ]);
   return (
     <>
