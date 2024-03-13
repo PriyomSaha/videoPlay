@@ -9,8 +9,7 @@ import PlayVideo from "./Components/PlayVideo";
 import { theme } from "Assets/themes";
 import { ThemeProvider } from "@emotion/react";
 import { CssBaseline } from "@mui/material";
-import Payments from "Components/Payments/Payments";
-import Example4 from "Assets/example4.tsx";
+import Payments from "Components/Payments/index.js";
 
 function App() {
   const src =
@@ -20,7 +19,6 @@ function App() {
     { path: "/", element: <LandingPage src={src} /> },
     { path: "/playvideo", element: <PlayVideo src={src} /> },
     { path: "/payment", element: <Payments /> },
-    { path: "/payments-alt", element: <Example4 /> },
   ]);
   return (
     <>

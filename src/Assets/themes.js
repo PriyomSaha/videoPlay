@@ -1,5 +1,5 @@
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
-import {} from "@mui/material/colors";
+import { blue } from "@mui/material/colors";
 
 const defaultTheme = createTheme();
 
@@ -92,6 +92,7 @@ const baseTheme = createTheme({
         },
       },
     },
+    
   },
 });
 

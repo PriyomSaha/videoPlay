@@ -58,7 +58,7 @@ export const PaymentsModalContainer = {
 export const PaymentsModal = {
   background: theme.palette.grey[100],
   marginTop: "-25vh",
-  minHeight: "60vh",
+  // minHeight: "60vh",
   minWidth: "90vw",
   maxWidth: "95vw",
   borderRadius: "30px",
@@ -74,8 +74,23 @@ export const PaymentsModalInner = {
   display: "flex",
   flexDirection: "column",
   background: theme.palette.grey[400],
-  minHeight: "50vh",
+  // minHeight: "50vh",
   minWidth: "80vw",
   borderRadius: "30px",
   margin: "1rem 5rem 2rem 5rem",
+  [theme.breakpoints.down("md")]: {
+    margin: "1rem 3rem 2rem 3rem",
+  },
+  [theme.breakpoints.down("sm")]: {
+    margin: "0.5rem",
+  },
+};
+
+export const cards = {
+  height: "auto",
+  width: "100%",
+  maxWidth: "500px",
+  borderRadius: "20px",
+  // px: 1,
+  marginBottom: "20px",
 };
