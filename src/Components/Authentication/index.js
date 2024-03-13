@@ -39,7 +39,11 @@ function Authentication({ isLoginModalopen, setIsLoginModalOpen }) {
                 <MdClose />
               </IconButton>
             </Box>
-            {modalType === "login" ? <Login /> : <Signup />}
+            {modalType === "login" ? (
+              <Login />
+            ) : (
+              <Signup setModalType={setModalType} />
+            )}
           </Box>
         </Zoom>
       </Modal>

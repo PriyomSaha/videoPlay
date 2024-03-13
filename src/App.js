@@ -10,6 +10,7 @@ import { theme } from "Assets/themes";
 import { ThemeProvider } from "@emotion/react";
 import { CssBaseline } from "@mui/material";
 import Payments from "Components/Payments/index.js";
+import ToastAlert from "Assets/ToastAlert";
 
 function App() {
   const src =
@@ -25,6 +26,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <RouterProvider router={routes} />
+        <ToastAlert />
       </ThemeProvider>
     </>
   );

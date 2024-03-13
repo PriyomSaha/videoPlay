@@ -38,7 +38,7 @@ export const FullScreenModalContent = {
   minWidth: "20vw",
   maxWidth: "30vw",
   [theme.breakpoints.down("md")]: {
-    maxWidth: "90vw",
+    maxWidth: "50vw",
   },
   [theme.breakpoints.down("sm")]: {
     maxWidth: "100vw",
@@ -93,4 +93,16 @@ export const cards = {
   borderRadius: "20px",
   // px: 1,
   marginBottom: "20px",
+};
+
+export const paymentSettings = {
+  width: "100%",
+  background: "#D10001",
+  color: "white",
+  height: "100%",
+  borderTopRightRadius: theme.breakpoints.up("md") ? "30px" : "0px",
+  borderBottomRightRadius: "30px",
+  borderBottomLeftRadius: theme.breakpoints.up("md") ? "0px" : "30px",
+  display: "flex",
+  flexDirection: "column",
 };

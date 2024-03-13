@@ -21,25 +21,73 @@ import {
   FullScreenModalContainer,
   FullScreenModalContent,
 } from "Assets/GlobalStyles";
-import EmailInput from "Assets/EmailInput";
-import Countries from "Assets/Countries";
-import PhoneInput from "react-phone-input-2";
 import PasswordInput from "Assets/PasswordInput";
+import { useSnackbarStore } from "Assets/StateManagement";
+import axios from "axios";
 
-function Signup() {
+function Signup({ setModalType }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [country, setCountry] = useState("IN");
 
   const [userName, setUserName] = useState("");
 
-  const [newpassword, setNewPassword] = useState("");
-  const [confirmNewpassword, setConfirmNewPassword] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [isPassMatch, setIsPassMatch] = useState(true);
 
-  const matches = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+  // Accessing alert snackbar data from global state
+  const setShowSnackbar = useSnackbarStore((state) => state.setShowSnackbar);
+  const setSnackbarMessage = useSnackbarStore(
+    (state) => state.setSnackbarMessage
+  );
+  const setSnackbarType = useSnackbarStore((state) => state.setSnackbarType);
+
+  const signUpUrl =
+    process.env.REACT_APP_BACKEND_URL + process.env.REACT_APP_SIGNUP_URL;
+
+  const API_KEY = process.env.REACT_APP_API_KEY;
+
+  const register = async () => {
+    try {
+      setIsPassMatch(true);
+      setIsSubmitting(true);
+
+      if (!userName || !password) {
+        setShowSnackbar();
+        setSnackbarType("error");
+        setSnackbarMessage("Mandatory fields missing");
+      } else if (password !== confirmPassword) {
+        setIsPassMatch(false);
+      } else {
+        const requestBody = { username: userName, password: password };
+        const requestHeader = {
+          "X-API-Key": API_KEY,
+        };
+        const resp = await axios.post(signUpUrl, requestBody, {
+          withCredentials: true,
+          headers: requestHeader,
+        });
+        if (!resp.data.error) {
+          setShowSnackbar();
+          setSnackbarType("success");
+          setSnackbarMessage(resp.data.message);
+          setModalType("login");
+        } else {
+          setShowSnackbar();
+          setSnackbarType("error");
+          setSnackbarMessage(resp.data.message);
+        }
+      }
+    } catch (e) {
+      setShowSnackbar();
+      setSnackbarType("error");
+      setSnackbarMessage("Some error occured!! Please try again.");
+    } finally {
+      setIsSubmitting(false);
+      setUserName("");
+      setPassword("");
+      setConfirmPassword("");
+    }
+  };
 
   return (
     <>
@@ -69,8 +117,8 @@ function Signup() {
             }}
           >
             <PasswordInput
-              password={newpassword}
-              setPassword={setNewPassword}
+              password={password}
+              setPassword={setPassword}
               label="New Password"
               needStrengthValidation={true}
             />
@@ -83,8 +131,8 @@ function Signup() {
             }}
           >
             <PasswordInput
-              password={confirmNewpassword}
-              setPassword={setConfirmNewPassword}
+              password={confirmPassword}
+              setPassword={setConfirmPassword}
               label="Reenter New Password"
               needStrengthValidation={true}
             />
@@ -132,8 +180,7 @@ function Signup() {
                   }}
                   // Click event handler to handle the "Update" action
                   onClick={(e) => {
-                    // setIsEditProfile();
-                    // handleSubmit(e);
+                    register();
                   }}
                 >
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Register&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

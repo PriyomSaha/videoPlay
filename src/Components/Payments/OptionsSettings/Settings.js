@@ -13,26 +13,14 @@ import {
 } from "@mui/material";
 import { theme } from "Assets/themes";
 import { useNavigate } from "react-router-dom";
+import { paymentSettings } from "Assets/GlobalStyles";
 
 function Settings() {
-  const matchesSmall = useMediaQuery(theme.breakpoints.up("md"));
   const navigate = useNavigate();
 
   return (
     <Grid item md={4} sm={12} xs={12}>
-      <Box
-        sx={{
-          width: "100%",
-          background: "#D10001",
-          color: "white",
-          height: "100%",
-          borderTopRightRadius: matchesSmall ? "30px" : "0px",
-          borderBottomRightRadius: "30px",
-          borderBottomLeftRadius: matchesSmall ? "0px" : "30px",
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
+      <Box sx={paymentSettings}>
         <Box
           sx={{
             px: 3,
@@ -108,11 +96,14 @@ function Settings() {
           my={2}
           display={"flex"}
           justifyContent={"center"}
-          sx={{ marginTop: "auto" }} // This ensures the button sticks to the bottom
+          sx={{ marginTop: "auto" }} // This ensures the button sti2wecks to the bottom
         >
           <Button
             variant="contained-dark"
-            sx={{ width: "20vw", mt: 2 }}
+            sx={{
+              width: theme.breakpoints.down("md") ? "25vw" : "80vw",
+              mt: 2,
+            }}
             onClick={() => navigate("/playvideo")}
           >
             Done
