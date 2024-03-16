@@ -12,10 +12,11 @@ import { CssBaseline } from "@mui/material";
 import Payments from "Components/Payments/index.js";
 import ToastAlert from "Assets/ToastAlert";
 import NotFoundPage from "Components/Authentication/NotfoundPage";
+import vdo from "Assets/VIVEKAM TRAILER HD.mp4";
 
 function App() {
-  const src =
-    "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
+  const src = vdo;
+  // "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
 
   const routes = createBrowserRouter([
     { path: "/", element: <LandingPage src={src} /> },
