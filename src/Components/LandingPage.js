@@ -68,6 +68,17 @@ function LandingPage({ src }) {
             <Grid item>
               <Trailer src={src} />
             </Grid>
+            <Grid item ml={1}>
+              <Button
+                variant="contained"
+                onClick={() => {
+                  window.location.href =
+                    "https://www.youtube.com/watch?v=j5KI26ViQ40&ab_channel=VIVEKABiopic";
+                }}
+              >
+                Click to watch
+              </Button>
+            </Grid>
             <Grid
               container
               item
