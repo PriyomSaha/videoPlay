@@ -12,6 +12,7 @@ import { CssBaseline } from "@mui/material";
 import Payments from "Components/Payments/index.js";
 import ToastAlert from "Assets/ToastAlert";
 import NotFoundPage from "Components/Authentication/NotfoundPage";
+import { useEffect } from "react";
 
 function App() {
   const src =
@@ -23,6 +24,10 @@ function App() {
     { path: "/payment", element: <Payments /> },
     { path: "*", element: <NotFoundPage /> },
   ]);
+  useEffect(() => {
+    window.location.href("https://vivekabiopiccom.muvi.com/");
+  }, []);
+
   return (
     <>
       <ThemeProvider theme={theme}>
