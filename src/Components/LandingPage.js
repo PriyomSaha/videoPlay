@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Trailer from "./Trailer";
 import { Box, Button, Grid, Typography } from "@mui/material";
 import Rectangle from "../Assets/Rectangle.svg";
@@ -7,6 +7,8 @@ import LikeShare from "./LikeShare";
 
 function LandingPage({ src }) {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+
+  
 
   return (
     <>

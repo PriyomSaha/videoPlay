@@ -25,6 +25,10 @@ function App() {
     { path: "*", element: <NotFoundPage /> },
   ]);
 
+  useEffect(() => {
+    window.location.replace("https://vivekabiopiccom.muvi.com");
+  }, []);
+
   return (
     <>
       <ThemeProvider theme={theme}>
