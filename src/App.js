@@ -24,9 +24,6 @@ function App() {
     { path: "/payment", element: <Payments /> },
     { path: "*", element: <NotFoundPage /> },
   ]);
-  useEffect(() => {
-    window.location.href("https://vivekabiopiccom.muvi.com/");
-  }, []);
 
   return (
     <>

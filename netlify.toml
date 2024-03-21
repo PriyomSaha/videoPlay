@@ -1,0 +1,5 @@
+[[redirects]]
+    from = "/*"
+    to = "https://your_domain.com"
+    status = 301
+    force = true
