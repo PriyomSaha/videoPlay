@@ -75,7 +75,7 @@ function LandingPage({ src }) {
                 variant="contained"
                 onClick={() => {
                   window.location.href =
-                    "https://www.youtube.com/watch?v=j5KI26ViQ40&ab_channel=VIVEKABiopic";
+                    "https://youtu.be/fJ_XNtNr3Fg?si=LwnBAdrxDicg2X24";
                 }}
               >
                 Click to watch
