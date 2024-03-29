@@ -25,9 +25,9 @@ function App() {
     { path: "*", element: <NotFoundPage /> },
   ]);
 
-  useEffect(() => {
+ /* useEffect(() => {
     window.location.replace("https://vivekabiopiccom.muvi.com");
-  }, []);
+  }, []);*/
 
   return (
     <>
