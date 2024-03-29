@@ -38,12 +38,12 @@ function LandingPage({ src }) {
               variant="contained"
               style={{ background: "#FF0003" }}
               // className="donate-button"
-              onClick={() => setIsLoginModalOpen(true)}
+              //onClick={() => setIsLoginModalOpen(true)}
             >
-              Donate to watch full movie
+              Full Movie now FREE
             </Button>
 
-            <Typography variant="h6" align="center">
+            <Typography variant="h6" align="center" sx={{textDecoration:'line-through', textDecorationStyle:'solid'}}>
               Min ₹100
             </Typography>
           </Grid>
